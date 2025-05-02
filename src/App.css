@@ -53,9 +53,10 @@ nav {
   font-weight: bold;
   color: #495E57;
   font-size: 1.1rem;
-  transition: color 0.3s ease-in-out;
-  transform 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: scale(1);
 }
+
 
 .nav-links li a:hover {
   color: #F4CE14;
