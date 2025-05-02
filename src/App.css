@@ -28,7 +28,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap; /* ADD this to help with responsiveness later */
+  flex-wrap: wrap;
+  /* ADD this to help with responsiveness later */
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -40,28 +41,28 @@ nav {
 
 .nav-links {
   display: flex;
-  align-items: center;
-  gap: 20px;
+  gap: 1.5rem;
+  justify-content: center;
   list-style: none;
-  margin: 0;
+
   padding: 0;
+  margin: 0;
 }
 
-.nav-links li {
-  display: inline-block;
-}
-
-.nav-links a {
+.nav-links li a {
   text-decoration: none;
   font-weight: bold;
   color: #495E57;
   font-size: 1.1rem;
-  transition: color 0.2s ease-in-out;
+  transition: color 0.3s ease-in-out;
+  transform 0.3s ease-in-out;
 }
 
-.nav-links a:hover {
-  color: #222;
+.nav-links li a:hover {
+  color: #F4CE14;
+  transform: scale(1.05);
 }
+
 
 
 
@@ -107,15 +108,22 @@ footer {
   }
 
   .nav-links li {
-    list-style: none; /* REMOVE bullets */
+    list-style: none;
+    /* REMOVE bullets */
   }
 
   .nav-links a {
-    font-size: 1.3rem; /* Slightly bigger on mobile for tap targets */
+    font-size: 1.3rem;
+    /* Slightly bigger on mobile for tap targets */
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Markazi Text', serif;
   color: #333;
   margin-bottom: 0.5em;
@@ -133,7 +141,9 @@ h3 {
   font-size: 2rem;
 }
 
-h4, h5, h6 {
+h4,
+h5,
+h6 {
   font-size: 1.5rem;
 }
 
@@ -185,7 +195,7 @@ img {
 .hero img {
   max-width: 100%;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .specials {
@@ -210,6 +220,5 @@ img {
 .specials img {
   max-width: 100%;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
