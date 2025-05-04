@@ -3,14 +3,12 @@ import Home from './pages/Home';
 import About from './pages/About';
 import BookingPage from './pages/BookingPage';
 
-function AppRoutes() {
+export default function AppRoutes({ availableTimes, setAvailableTimes }) {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/booking" element={<BookingPage />} />
+      <Route path="/booking" element={<BookingPage availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} />} />
     </Routes>
   );
 }
-
-export default AppRoutes;
