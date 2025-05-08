@@ -1,4 +1,5 @@
-/* global fetchAPI */
+import { fetchAPI, submitAPI } from './api';
+
 
 /**
  * Initializes the available booking times for today's date.
