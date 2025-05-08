@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import BookingForm from '../components/BookingForm';
-/* global submitAPI */
+import { submitAPI } from '../api';
+console.log('submitAPI loaded:', submitAPI);
 
 export default function BookingPage({ availableTimes, dispatch }) {
   const navigate = useNavigate();

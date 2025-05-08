@@ -232,3 +232,25 @@ img {
   border: 2px solid #ccc;
   border-radius: 10px;
 }
+
+.booking-form button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  border: 1px solid #999;
+  transition: 0.3s ease;
+}
+
+.booking-form button {
+  background-color: #f4ce14;
+  color: #333;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.booking-form button:hover:not(:disabled) {
+  background-color: #d4b012;
+}
