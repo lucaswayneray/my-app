@@ -1,4 +1,12 @@
 import { useState } from 'react';
+import {
+  isDateValid,
+  isTimeValid,
+  isGuestsValid,
+  isOccasionValid
+} from '../utils/validation';
+console.log('isDateValid:', isDateValid);
+
 
 export default function BookingForm({ availableTimes, dispatch, submitForm }) {
   const [date, setDate] = useState('');
@@ -9,48 +17,57 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
     setDate(selectedDate);
-    dispatch({ type: "update_times", payload: selectedDate });
+    dispatch({ type: 'update_times', payload: selectedDate });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = { date, time, guests, occasion };
-    console.log("Form submitted:", formData);
+    console.log('Form submitted:', formData);
     if (submitForm) {
       submitForm(formData);
     }
   };
 
   const isFormValid =
-    date &&
-    time &&
-    guests >= 1 &&
-    guests <= 10 &&
-    occasion;
+    isDateValid(date) &&
+    isTimeValid(time) &&
+    isGuestsValid(guests) &&
+    isOccasionValid(occasion);
 
-  const todayStr = new Date().toISOString().split("T")[0];
+  const todayStr = new Date().toISOString().split('T')[0];
 
   return (
-    <form className="booking-form" onSubmit={handleSubmit}>
+    <form
+      className="booking-form"
+      onSubmit={handleSubmit}
+      aria-label="Table Reservation Form"
+    >
       <fieldset>
         <legend>Book Your Reservation</legend>
 
-        <label htmlFor="res-date">Choose Date</label>
+        <label htmlFor="res-date">
+          Choose Date
+        </label>
         <input
           type="date"
           id="res-date"
           value={date}
           onChange={handleDateChange}
-          required
           min={todayStr}
+          required
+          aria-required="true"
         />
 
-        <label htmlFor="res-time">Choose Time</label>
+        <label htmlFor="res-time">
+          Choose Time
+        </label>
         <select
           id="res-time"
           value={time}
           onChange={(e) => setTime(e.target.value)}
           required
+          aria-required="true"
         >
           <option value="">Select a time</option>
           {availableTimes.map((time) => (
@@ -60,7 +77,9 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
           ))}
         </select>
 
-        <label htmlFor="guests">Number of Guests</label>
+        <label htmlFor="guests">
+          Number of Guests
+        </label>
         <input
           type="number"
           id="guests"
@@ -69,21 +88,28 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
           min="1"
           max="10"
           required
+          aria-required="true"
         />
 
-        <label htmlFor="occasion">Occasion</label>
+        <label htmlFor="occasion">
+          Occasion
+        </label>
         <select
           id="occasion"
           value={occasion}
           onChange={(e) => setOccasion(e.target.value)}
           required
+          aria-required="true"
         >
           <option value="">Select an occasion</option>
           <option>Birthday</option>
           <option>Anniversary</option>
         </select>
 
-        <button type="submit" disabled={!isFormValid}>
+        <button
+          type="submit"
+          disabled={!isFormValid}
+        >
           Make Your Reservation
         </button>
       </fieldset>
